@@ -1,0 +1,5 @@
+create table branch (branchname char(10) primary key,branchcity char(10) not null,assets int not null,check (assets>0));
+create table customer(custname char(10) primary key, custstreeet char(10),custcity char(10) not null);
+create table account (accunum number(10) primary key,branchname char(10),balance float(10), check(balance>500), foreign key (branchname) references branch);
+create table Loan(loanno number(1O) primary key,branchname char(10),amount float (10),check (amount>0),foreign key (branchname) references branch);
+CREATE TABLE Loan(loanno NUMBER(10) PRIMARY KEY,branchname char(10),amount float (10),CHECK (amount>0),foreign key (branchname) references branch);
