@@ -1,0 +1,56 @@
+ 
+CREATE TABLE Branch(branchname CHAR(20) PRIMARY KEY, branchcity CHAR(20) NOT NULL, asset INT NOT NULL, CHECK(asset>0));
+ 
+DESC Branch;
+ 
+CREATE TABLE Customer(custname char(20) primary key, custstreet char(20), custcity char(20) not null);
+ 
+desc Customer;
+ 
+create table Account(accnum number(12) primary key, branchname char(20), balance float(10), check(balance>500), foreign key(branchname) references Branch);
+ 
+desc Account;
+ 
+CREATE TABLE Loan(loanno NUMBER(12) PRIMARY KEY, branchname char(20), amount float(10), CHECK(amount>0));
+ 
+DESC Loan;
+ 
+CREATE TABLE borrower(custname char(20), loanno NUMBER(12), FOREIGN KEY(custname) REFERENCES Customer, FOREIGN KEY (loanno) REFERENCES Loan);
+ 
+desc borrower;
+ 
+create table Depositor(custname char(20), accnum number(12), foreign key(custname) references Customer, alter table Depositor add(foreign key (accnum) references Account on delete cascade););
+ 
+desc Depositor;
+ 
+ALTER TABLE Customer modify(custstreet not null);
+ 
+desc Customer;
+ 
+ALTER TABLE Customer ADD(phoneNo NUMBER(12));
+ 
+desc Customer;
+ 
+ALTER TABLE Customer ADD(custage NUMBER(3));
+ 
+desc Customer;
+ 
+ALTER TABLE Customer ADD CHECK(custage>18);
+ 
+desc Customer;
+ 
+ALTER TABLE Customer MODIFY(phoneNo varchar(10));
+ 
+desc Customer;
+ 
+ALTER TABLE Customer DROP column phoneNo;
+ 
+desc Customer;
+ 
+ALTER TABLE Customer DROP column custage;
+ 
+desc Customer;
+ 
+SELECT * FROM USER_CONSTRAINTS where  TABLE_NAME='ACCOUNT';
+ 
+ALTER TABLE Account DROP CONSTRAINT SYS_C007125;
