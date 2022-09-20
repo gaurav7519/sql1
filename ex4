@@ -1,0 +1,11 @@
+select AVG(balance) from Account where branchname='Perryridge';
+
+select max(amount) from Loan;	
+
+SELECT count(accnum) FROM Account WHERE balance BETWEEN 700 AND 900;
+
+SELECT COUNT(accnum) FROM Account WHERE branchname='Capital Bank';
+
+SELECT UNIQUE custcity FROM Customer;
+
+SELECT COUNT(UNIQUE branchname) from Loan;
