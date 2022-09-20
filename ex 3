@@ -1,0 +1,199 @@
+ 
+ 
+insert into Branch values('park street','park street',500000);
+ 
+insert into Account (accnum,branchname,balance)values(978245,'park street',900);
+ 
+select * from Account;
+ 
+ 
+insert into Customer values('Vivek','Main Street','Ichalkaranji');
+ 
+select * from Customer;
+ 
+ 
+insert into Branch values('SBI','Ichalkaranji',600000);
+ 
+insert into Branch values('BOI','Ichalkaranji',700000);
+ 
+insert into Branch values('Axis','Sangli',400000);
+ 
+insert into Branch values ('HDFC','Sangli',300000);
+ 
+insert into Branch values('Downtown','Ichalkaranji',50000);
+ 
+select * from Branch;
+ 
+ 
+insert into Account values(101,'SBI',10000);
+ 
+insert into Account values(102,'BOI',20000);
+ 
+insert into Account values(103,'BOI',20000);
+ 
+insert into Account values (104,'Axis',5000);
+ 
+insert into Account values (105,'HDFC',200000);
+ 
+insert into Account values(106,'perryridge',12000);
+ 
+select *  from Account;
+ 
+ 
+insert into Customer values ('Sagar','Main Street','Ichalkaranji');
+ 
+insert into Customer values ('Swapnil','Main Road','Sangli');
+ 
+insert into Customer values ('Akshay','Main Street','Kolhapur');
+ 
+insert into Customer values('Dipak','Main Road','Sangli');
+ 
+insert into Customer values('ABC','PQR','XYZ');
+ 
+ 
+select * from Customer;
+ 
+ 
+insert into Loan values (501,'SBI',500000);
+ 
+insert into Loan values (502,'BOI',1000000);
+ 
+insert into Loan values (503,'park street',2000000);
+ 
+insert into Loan values (504,'HDFC',400000);
+ 
+insert into Loan values (505,'Axis',200000);
+ 
+insert into Loan values(506,'perryridge',10000);
+ 
+select * from Loan;
+ 
+ 
+insert into borrower values('Vivek',501);
+ 
+insert into borrower values('Swapnil',502);
+ 
+insert into borrower values('Sagar',503);
+ 
+insert into borrower values('Akshay',504);
+ 
+insert into borrower values('Dipak',505);
+ 
+select * from borrower;
+ 
+ 
+insert into Depositor values('Vivek',101);
+ 
+insert into Depositor values('Swapnil',102);
+ 
+insert into Depositor values('Sagar',103);
+ 
+insert into Depositor values('Akshay',104);
+ 
+insert into Depositor values('Dipak',105);
+ 
+insert into Depositor values('ABC',978245);
+ 
+select * from Depositor;
+ 
+ 
+ 
+insert into Branch VALUES ('perryridge','Ichalkaranji',5000);
+ 
+UPDATE Branch SET asset=3400 WHERE branchname='perryridge';
+ 
+select * from Branch;
+ 
+ 
+UPDATE Account SET balance=balance+0.02*balance WHERE balance<=1000;
+ 
+select * from Account;
+ 
+ 
+UPDATE Account SET branchname='Downtown' WHERE branchname='perryridge';
+ 
+UPDATE Loan SET branchname='Downtown' WHERE branchname='perryridge';
+ 
+select * from Account;
+ 
+select * from Loan;
+ 
+ 
+UPDATE Account SET balance=balance-100 WHERE accnum=101;
+ 
+UPDATE Account SET balance=balance+100 WHERE accnum=102;
+ 
+select * from Account;
+ 
+ 
+DELETE FROM Branch WHERE branchname='perryridge';
+ 
+select * from Branch;
+ 
+ 
+delete from Customer where custcity='Downtown';
+ 
+select * from Customer;
+ 
+ 
+delete from Account;
+ 
+ 
+select branchname,asset from branch;
+ 
+ 
+select * from Loan where amount>1000;
+ 
+ 
+select * from Account where balance<700;
+ 
+ 
+select * from Account where branchname='perryridge' and balance<1000;
+ 
+ 
+select distinct branchname from Loan; 
+ 
+ 
+select loanno from Loan where branchname='perryridge' and amount>10000;
+ 
+ 
+select loanno from Loan where 10000<amount and amount<50000;select loanno from Loan where 10000<amount and amount<50000;
+ 
+ 
+select custname from Customer;
+ 
+ 
+select distinct branchname from Loan;
+ 
+ 
+select * from Branch;
+ 
+ 
+select accnum from Account where balance>700;
+ 
+ 
+select accnum,balance
+ 
+ from Account
+ 
+where branchname='Brighton' and balance>800;
+ 
+ 
+alter table Branch rename column asset to assets_in_thousands;
+ 
+select branchname,assets_in_thousands from Branch;
+ 
+ 
+SELECT branchname FROM Branch WHERE assets_in_thousands>1000000 and assets_in_thousands<4000000;
+ 
+ 
+SELECT custname FROM Customer WHERE custstreet LIKE'%Main%';
+ 
+ 
+SELECT * FROM Account WHERE branchname LIKE'Ca%';
+ 
+ 
+SELECT * FROM Account WHERE branchname LIKE '_a_%';
+ 
+ 
+select loanno from Loan where amount IS NULL;
